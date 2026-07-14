@@ -15,31 +15,28 @@ app = Client(
     api_id=API_ID,
     api_hash=API_HASH,
     bot_token=BOT_TOKEN,
+    plugins=dict(root="plugins")
 )
 
 user = Client(
     "MeyusAssistant",
     api_id=API_ID,
     api_hash=API_HASH,
-    session_string=SESSION_STRING,
+    session_string=SESSION_STRING
 )
 
 call_py = PyTgCalls(user)
 
-def main():
-    print("🎵 Meyus Music VC başlatılıyor...")
+print("🎵 Meyus Music VC başlatılıyor...")
 
-    app.start()
-    user.start()
-    call_py.start()
+app.start()
+user.start()
+call_py.start()
 
-    print("✅ Meyus Music VC aktif!")
+print("✅ Meyus Music VC aktif!")
 
-    idle()
+idle()
 
-    call_py.stop()
-    user.stop()
-    app.stop()
-
-if __name__ == "__main__":
-    main()
+call_py.stop()
+user.stop()
+app.stop()
